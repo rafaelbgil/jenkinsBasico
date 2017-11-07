@@ -1,0 +1,11 @@
+#!groovy
+node { 
+    checkout scm
+    stage('Finalizacao processos via ssh'){
+	    sshagent(['id-da-chave-ssh']) {
+		    sh 'scp -oStrictHostKeyChecking=no comando.sh root@172.16.102.192:/opt/scripts/'
+		    sh 'ssh -oStrictHostKeyChecking=no root@172.16.102.192 /opt/scripts/comando.sh'
+		    echo 'Processos executados com sucesso    
+      }
+    }
+}
