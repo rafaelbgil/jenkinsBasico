@@ -1,0 +1,16 @@
+#!groovy
+node {
+    parameters {
+	    string(name: 'ambiente', description: 'Parametro usuado para definir ambiente')
+    }
+	stage('Inicio do job1 Parametrizado'){
+		echo "Execucao de sincronizacao do ambiente $ambiente"
+		build job: 'jobsecundario', parameters: [
+                string(name: 'ambiente', value: "$ambiente")
+                ]
+    }
+	stage('Parte2'){
+		sh "echo $ambiente"
+         
+    }
+}
