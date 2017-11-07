@@ -2,13 +2,12 @@
 #Exemplo de jenkinsfile parametrizado
 node {
     parameters {
-        string(name: 'ambiente', description: 'Parametro usuado para definir ambiente')
+	    string(name: 'ambiente', description: 'Parametro usuado para definir ambiente')
     }
-    stage('Inicio do job Parametrizado'){
+	stage('Inicio do job Parametrizado'){
 		echo "Execucao de sincronizacao do ambiente ${ambiente}"
-         
     }
-    stage('Parte2'){
+	stage('Parte2'){
 		sh "echo 'teste ${ambiente}'"
          
     }
