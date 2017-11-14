@@ -1,0 +1,4 @@
+Anotacoes uteis referentes a powershell 
+
+comando para logar em computador pelo ip ou fora do dominio.(deve ser executado no client)
+Set-Item -Path WSMan:\localhost\Client\TrustedHosts -Value 'jenkins-win.cp.totvs.com.br'
